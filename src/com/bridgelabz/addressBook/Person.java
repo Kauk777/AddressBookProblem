@@ -1,8 +1,8 @@
 package com.bridgelabz.addressBook;
 
 public class Person {
-	private String fName;
-	private String lName;
+	public String fName;
+	public String lName;
 	private String address;
 	private String city;
 	private String state;
