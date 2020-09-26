@@ -23,6 +23,12 @@ public class AddressBookMain {
 			System.out.println(addrs);
 		}
 	}
+	public void viewUniqueDetails() {
+		for(Map.Entry<String,Person> map:contactMap.entrySet()) {
+			System.out.println(map.getKey());
+			System.out.println(map.getValue());
+		}
+	}
 	
 	public void deleteDetails(String fname, String lname) {
 		for(Person details:contactList) {
@@ -40,11 +46,14 @@ public class AddressBookMain {
 		addBook.addDetails("Joshua", "Patrick", "Mave Hill 025", "Las Vegas", "California", "C25042", 25478963, "joshua@green.com");
 		addBook.addDetails("Staya", "Veda", "Kali Marg 254", "Kolkata", "West Bengal", "254156", 75848933, "veda@gmail.com");
 		addBook.addDetails("Zao", "Vikigh", "Yellow River R10", "Xinju", "Bejing", "745156", 98848933, "zao@gmail.com");
+		addBook.addDetails("Zao", "Vikigh", "Yellow Plain R10", "Xinju", "Bejing", "745156", 98848933, "zao@gmail.com");
 		addBook.viewDetails();
 		System.out.println("*****Deleting Details*****");
 		addBook.deleteDetails("Staya","Veda");
 		System.out.println("After deleting details based on person name: ");
 		addBook.viewDetails();
+		System.out.println("*****Address Book based on Unique Name*****");
+		addBook.viewUniqueDetails();
 	}
 
 }
