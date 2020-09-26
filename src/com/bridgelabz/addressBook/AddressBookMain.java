@@ -4,14 +4,18 @@ import java.util.*;
 
 public class AddressBookMain {
 	private ArrayList<Person> contactList;
+	private Map<String,Person> contactMap;
 	
 	public AddressBookMain() {
 		contactList = new ArrayList<>();
+		contactMap = new HashMap<>();
 	}
 	
 	public void addDetails(String fname,String lname, String address, String city, String state, String zip, long phno, String email) {
 		Person p=new Person(fname,lname,address,city,state,zip,phno,email);
 		contactList.add(p);
+		String name=fname+lname;
+		contactMap.put(name, p);
 	}
 	
 	public void viewDetails() {
@@ -37,6 +41,7 @@ public class AddressBookMain {
 		addBook.addDetails("Staya", "Veda", "Kali Marg 254", "Kolkata", "West Bengal", "254156", 75848933, "veda@gmail.com");
 		addBook.addDetails("Zao", "Vikigh", "Yellow River R10", "Xinju", "Bejing", "745156", 98848933, "zao@gmail.com");
 		addBook.viewDetails();
+		System.out.println("*****Deleting Details*****");
 		addBook.deleteDetails("Staya","Veda");
 		System.out.println("After deleting details based on person name: ");
 		addBook.viewDetails();
