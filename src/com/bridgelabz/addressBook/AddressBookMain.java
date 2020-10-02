@@ -49,13 +49,14 @@ public class AddressBookMain {
 			if(m.getValue().state.equals(statename))
 				stateList.add(m.getValue());
 		}
+		int statePersonCount=stateList.size();
 		HashMap<String,ArrayList> statePersonMap=new HashMap<>();
 		statePersonMap.put(statename, stateList);
 		for(Map.Entry<String,ArrayList> p:statePersonMap.entrySet()) {
 			System.out.println(p.getKey());
 			System.out.println(p.getValue());
 		}
-				
+		System.out.println("Number of person conatcts in "+statename+" is: "+statePersonCount);		
 	}
 	
 	public void viewPersonByCity(String cityname) {
@@ -64,26 +65,28 @@ public class AddressBookMain {
 			if(m.getValue().city.equals(cityname))
 				cityList.add(m.getValue());
 		}
+		int cityPersonCount=cityList.size();
 		HashMap<String,ArrayList> cityPersonMap=new HashMap<>();
 		cityPersonMap.put(cityname, cityList);
 		for(Map.Entry<String,ArrayList> p:cityPersonMap.entrySet()) {
 			System.out.println(p.getKey());
 			System.out.println(p.getValue());
 		}
+		System.out.println("Number of person conatcts in "+cityname+" is: "+cityPersonCount);
 	}
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		AddressBookMain addBook=new AddressBookMain();
 		addBook.addDetails("Joshua", "Patrick", "Mave Hill 025", "Las Vegas", "California", "C25042", 25478963, "joshua@green.com");
-		addBook.addDetails("Staya", "Veda", "Kali Marg 254", "Kolkata", "West Bengal", "254156", 75848933, "veda@gmail.com");
+		addBook.addDetails("Staya", "Veda", "Kali Marg 254", "Kolkata", "Bengal", "254156", 75848933, "veda@gmail.com");
 		addBook.addDetails("Zao", "Vikigh", "Yellow River R10", "Xinju", "Bejing", "745156", 98848933, "zao@gmail.com");
 		addBook.addDetails("Zao", "Vikigh", "Yellow Plain R10", "Xinju", "Bejing", "745156", 98848933, "zao@gmail.com");
 		addBook.addDetails("Momba", "High", "Venus street", "Panji", "Goa", "831005", 84512355, "high@hotmail.com");
 		addBook.addDetails("Sidharth", "Kahali", "Neptune street", "Panji", "Goa", "831005", 88514355, "kahali@hotmail.com");
 		addBook.addDetails("Veda", "Veenet", "Mars street", "Panji", "Goa", "831045", 68514355, "veenet@hotmail.com");
-		addBook.addDetails("Mave", "Carla", "Durga Street24", "Durgapur", "West Bengal", "254186", 96848933, "carla@gmail.com");
-		addBook.addDetails("Shyansh", "Kumar", "Kali Marg 257", "Kolkata", "West Bengal", "254156", 84848933, "shyansh1998@gmail.com");
+		addBook.addDetails("Mave", "Carla", "Durga Street24", "Durgapur", "Bengal", "254186", 96848933, "carla@gmail.com");
+		addBook.addDetails("Shyansh", "Kumar", "Kali Marg 257", "Kolkata", "Bengal", "254156", 84848933, "shyansh1998@gmail.com");
 		addBook.viewDetails();
 		boolean flag=true;
 		System.out.println("1. Edit address detail based on person name");
