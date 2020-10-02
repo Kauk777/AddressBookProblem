@@ -25,7 +25,7 @@ public class Person {
 	@Override
 	public String toString() {
 		return "Person Address [FirstName=" + fName + ", LastName=" + lName + ", address=" + address + ", city=" + city + ", state="
-				+ state + ", zip=" + zip + ", phoneNo=" + phoneNo + ", email=" + email + "]";
+				+ state + ", zip=" + zip + ", phoneNo=" + phoneNo + ", email=" + email + "]"+"\n";
 	}
 	
 }

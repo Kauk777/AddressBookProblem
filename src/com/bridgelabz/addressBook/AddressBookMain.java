@@ -43,15 +43,32 @@ public class AddressBookMain {
 		}
 	}
 	
-	public void viewByState(String stateName) {
+	public void viewPersonByState(String statename) {
 		ArrayList<Person> stateList=new ArrayList<>();
 		for(Map.Entry<String,Person> m:contactMap.entrySet()) {
-			if(m.getValue().state.equals(stateName))
+			if(m.getValue().state.equals(statename))
 				stateList.add(m.getValue());
 		}
-		for(Person p:stateList) {
-			System.out.println(p.fName+" "+p.lName);
-			System.out.println(p);
+		HashMap<String,ArrayList> statePersonMap=new HashMap<>();
+		statePersonMap.put(statename, stateList);
+		for(Map.Entry<String,ArrayList> p:statePersonMap.entrySet()) {
+			System.out.println(p.getKey());
+			System.out.println(p.getValue());
+		}
+				
+	}
+	
+	public void viewPersonByCity(String cityname) {
+		ArrayList<Person> cityList=new ArrayList<>();
+		for(Map.Entry<String,Person> m:contactMap.entrySet()) {
+			if(m.getValue().city.equals(cityname))
+				cityList.add(m.getValue());
+		}
+		HashMap<String,ArrayList> cityPersonMap=new HashMap<>();
+		cityPersonMap.put(cityname, cityList);
+		for(Map.Entry<String,ArrayList> p:cityPersonMap.entrySet()) {
+			System.out.println(p.getKey());
+			System.out.println(p.getValue());
 		}
 	}
 
@@ -65,12 +82,15 @@ public class AddressBookMain {
 		addBook.addDetails("Momba", "High", "Venus street", "Panji", "Goa", "831005", 84512355, "high@hotmail.com");
 		addBook.addDetails("Sidharth", "Kahali", "Neptune street", "Panji", "Goa", "831005", 88514355, "kahali@hotmail.com");
 		addBook.addDetails("Veda", "Veenet", "Mars street", "Panji", "Goa", "831045", 68514355, "veenet@hotmail.com");
+		addBook.addDetails("Mave", "Carla", "Durga Street24", "Durgapur", "West Bengal", "254186", 96848933, "carla@gmail.com");
+		addBook.addDetails("Shyansh", "Kumar", "Kali Marg 257", "Kolkata", "West Bengal", "254156", 84848933, "shyansh1998@gmail.com");
 		addBook.viewDetails();
 		boolean flag=true;
 		System.out.println("1. Edit address detail based on person name");
 		System.out.println("2. Delete address detail based on person name");
-		System.out.println("3. Address details of persons based on state");
-		System.out.println("4. Exit");
+		System.out.println("3. View person names by state");
+		System.out.println("4. View person names by city");
+		System.out.println("5. Exit");
 		while(flag) {
 			System.out.println("Enter your choice");
 			int ch=sc.nextInt();
@@ -89,10 +109,15 @@ public class AddressBookMain {
 				break;
 			case 3:
 				System.out.println("Enter the state name");
-				String sname=sc.next();
-				addBook.viewByState(sname);
+				String spname=sc.next();
+				addBook.viewPersonByState(spname);
 				break;
 			case 4:
+				System.out.println("Enter the city name");
+				String cpname=sc.next();
+				addBook.viewPersonByCity(cpname);
+				break;
+			case 5:
 				flag=false;
 				break;
 			default:
